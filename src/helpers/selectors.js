@@ -1,7 +1,7 @@
 import React from "react";
 
 //show schedule (array of appointments) for selected day
-export function getAppointmentsForDay(state, day) {
+export default function getAppointmentsForDay(state, day) {
   
   const daySelected = state.days.find(selectDay => selectDay.name === day);
   
