@@ -15,8 +15,7 @@ export default function Application(props) {
 
   const setDay = day => setState({ ...state, day });//only change day key
   const appointments = getAppointmentsForDay(state, state.day);
-  const interviewers = getInterviewersForDay(state, state.day);//OUT if run into error
-  // const setDays = days => setState(prev => ({...prev, days}));//only change days key
+  const interviewers = getInterviewersForDay(state, state.day);
   
   //renders data for days (nav bar)
   useEffect(() => {
@@ -49,10 +48,14 @@ export default function Application(props) {
       [id]: appointment
     };
 
-    setState({
-      ...state,
-      appointments
-    });
+    return axios.put(`/api/appointments/${id}`, {interview})
+      .then(() => {
+        setState({
+          ...state,
+          appointments
+        });
+      })
+
   }
 
   
