@@ -55,9 +55,19 @@ export default function Application(props) {
           appointments
         });
       })
-
   }
 
+  function cancelInterview(id, interview) {
+
+    return axios.delete(`/api/appointments/${id}`)
+      .then(() => {
+        setState({
+          ...state
+           
+        });
+      })
+    //find the corresponding appt slot, set it's interview data to null
+  }
   
   
   const schedule = appointments.map(appointment => {
@@ -70,6 +80,7 @@ export default function Application(props) {
         interview={interview}
         interviewers={interviewers}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
       />
     );
   });
