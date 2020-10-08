@@ -13,8 +13,8 @@ export default function Form(props) {
   };
   
   const cancel = () => {
-   onCancel();
-   reset();
+    onCancel();
+    reset();
   }
  
   return(
