@@ -46,7 +46,7 @@ export default function Appointment(props) {
       });
   }
 
-
+//onDelete={remove}
   return (
     <article className="appointment"> 
       <Header time={time}/>
@@ -55,7 +55,7 @@ export default function Appointment(props) {
         <Show
           student={interview.student}
           interviewer={interview.interviewer}
-          onDelete={remove}
+          onDelete={() => transition(CONFIRM)}
         />
       )} 
       {mode === CREATE && (
@@ -69,6 +69,14 @@ export default function Appointment(props) {
       {mode === SAVING && (
         <Status
           message={"Saving"}
+        />
+      )}
+      {mode === CONFIRM && (
+        <Confirm
+          message={"Are you sure you would like to delete?"}
+          onCancel={back}
+          onConfirm={remove}
+
         />
       )}
       {mode === DELETING && (
