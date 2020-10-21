@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Confirm(props) {
-  const { message, onClose } = props;
+  const { message } = props;
   return (
     <main className="appointment__card appointment__card--error">
       <section className="appointment__error-message">
@@ -12,7 +12,7 @@ export default function Confirm(props) {
         className="appointment__error-close"
         src="images/close.png"
         alt="Close"
-        onClick={onClose} 
+        onClick={() => {props.onClose()}}
       />
     </main>
   )
